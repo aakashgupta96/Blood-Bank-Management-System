@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BloodBank</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<ul id="dropdown1" class="dropdown-content">
+  <% if current_donor.nil? %>
+  	<li><%= link_to "Sign in as Donor", new_donor_session_path%></li>
+  <% else %>
+  	<li><%= link_to "Sign Out Donor", destroy_donor_session_path, method: "delete"%></li>
+  <% end %>
+  
+  <% if current_hospital.nil? %>
+  	<li><%= link_to "Sign in as Hospital", new_hospital_session_path%></li>
+  <% else %>
+  	<li><%= link_to "Sign Out Hospital", destroy_hospital_session_path, method: "delete"%></li>
+  <% end %>
+
+	<% if current_bank.nil? %>
+  	<li><%= link_to "Sign in as Blood Bank", new_bank_session_path%></li>
+  <% else %>
+  	<li><%= link_to "Sign Out Blood Bank", destroy_bank_session_path, method: "delete"%></li>
+  <% end %>
+
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">Blood Bank Management System</a>
+    <ul class="right hide-on-small-only">
+      <li><%= link_to "Home", root_path %></li>
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>

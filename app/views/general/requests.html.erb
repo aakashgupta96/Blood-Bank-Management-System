@@ -1,0 +1,31 @@
+<%= link_to "View Dashboard", bank_dashboard_path, class: "btn-large"%>
+<%= link_to "Log Out", destroy_bank_session_path, method: "delete", class: "btn-large right"%>
+<div class="table-box white card hoverable z-depth-4"><p class="table_head">Received Blood Requests</p>
+  <table class="responsive-table striped">
+    <thead>
+        <tr>
+            <th>Blood Type</th>
+            <th>Hospital Name</th>
+            <th>Volume(in ml)</th>
+            <th>Date</th> 
+            <th>Action</th> 
+        </tr>
+    </thead>
+
+    <tbody>
+      <% @requests.each do |request| %>
+        <tr>
+          <td><%= request.blood_type%></td>
+          <td><%= request.bank.name %></td>
+          <td><%= request.amount %></td>
+          <td><%= request.created_at%></td>
+          <% if request.pending? %>
+            <td><%= link_to "Accept", accept_request_path(request.id), method: "post", class: "btn" %> <%= link_to "Reject", reject_request_path(request.id), method: "post", class: "btn" %></td>
+          <% else %>
+            <td><%= request.status%></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

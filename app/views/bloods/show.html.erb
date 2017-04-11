@@ -1,0 +1,18 @@
+<p id="notice"></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @blood.category %>
+</p>
+
+<p>
+  <strong>Amount:</strong><br/>
+  <%= @blood.amount %>ml<br/>
+</p>
+
+<p>
+  <strong>Blood Bank:</strong>
+  <%= @blood.bank.name %>
+</p>
+
+<%= link_to 'Edit', edit_blood_path(@blood) %>

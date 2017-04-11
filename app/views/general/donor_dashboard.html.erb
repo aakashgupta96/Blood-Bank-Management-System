@@ -1,0 +1,25 @@
+<a href="/bloods/new" class="btn-large">Donate Now</a>
+<%= link_to "Log Out", destroy_donor_session_path, method: "delete", class: "btn-large right"%>
+<div class="table-box white card hoverable z-depth-4"><p class="table_head">Blood Donations</p>
+  <table class="responsive-table striped">
+    <thead>
+        <tr>
+            <th>Blood Type</th>
+            <th>Blood Bank Name</th>
+            <th>Volume(in ml)</th>
+            <th>Date</th> 
+        </tr>
+    </thead>
+
+    <tbody>
+      <% @donations.each do |donation| %>
+        <tr>
+          <td><%= donation.category %></td>
+          <td><%= donation.bank.name %></td>
+          <td><%= donation.amount %></td>
+          <td><%= donation.created_at%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

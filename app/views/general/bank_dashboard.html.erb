@@ -1,0 +1,25 @@
+<%= link_to "View Blood Requests", requests_path, class: "btn-large"%>
+<%= link_to "Log Out", destroy_bank_session_path, method: "delete", class: "btn-large right"%>
+<div class="table-box white card hoverable z-depth-4"><p class="table_head">Received Blood Donations</p>
+  <table class="responsive-table striped">
+    <thead>
+        <tr>
+            <th>Blood Type</th>
+            <th>Donor Name</th>
+            <th>Volume(in ml)</th>
+            <th>Date</th> 
+        </tr>
+    </thead>
+
+    <tbody>
+      <% @donations.each do |donation| %>
+        <tr>
+          <td><%= donation.category %></td>
+          <td><%= donation.donor.full_name %></td>
+          <td><%= donation.amount %></td>
+          <td><%= donation.created_at%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

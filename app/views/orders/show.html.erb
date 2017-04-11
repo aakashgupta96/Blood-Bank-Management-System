@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @order.hospital_id %>
+</p>
+
+<p>
+  <strong>Bank:</strong>
+  <%= @order.bank_id %>
+</p>
+
+<p>
+  <strong>Blood type:</strong>
+  <%= @order.blood_type %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @order.amount %>
+</p>
+
+<%= link_to 'Back', hospital_dashboard_path %>

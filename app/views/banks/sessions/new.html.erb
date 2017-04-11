@@ -1,0 +1,31 @@
+<div class="row white container form">
+  <p class="form_heading">Blood Bank Log in</p>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "col s12") do |f| %>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <%= f.text_field :username, class: "validate" %>
+          <%= f.label "Username" %>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">vpn_key</i>
+          <%= f.password_field :password, class: "validate" %>
+          <%= f.label "Password" %>
+        </div>
+        <% if devise_mapping.rememberable? -%>
+        <div class="input-field col s12">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+        <% end %>
+        <div class="input-field col s12">
+          <%= f.submit "Log in", class: "btn" %>
+        </div>
+
+      </div>
+
+  <% end %>
+
+  <%= render "banks/shared/links" %>
+</div>
